@@ -3,7 +3,8 @@ from django.shortcuts import render
 
 # Импортируем класс, который говорит нам о том,
 # что в этом представлении мы будем выводить список объектов из БД
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
+# from django.views.generic.detail import DetailView
 from .models import Product
 
 
