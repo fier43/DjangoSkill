@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'fpages',
     'simpleapp',
     'django_filters',
+    'sign',
+    'protect',
 ]
 
 SITE_ID = 1
@@ -133,3 +135,6 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATICFILES_DIRS = [BASE_DIR / 'static', 'templates/flatpages']
+
+LOGIN_URL = 'sign/login/'
+LOGIN_REDIRECT_URL = '/'
