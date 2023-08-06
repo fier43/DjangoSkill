@@ -29,5 +29,6 @@ class BasicSignupForm(SignupForm):
         user = super(BasicSignupForm, self).save(request)
         basic_group = Group.objects.get(name='basic')
         basic_group.user_set.add(user)
+        user.save()
         return user
 
