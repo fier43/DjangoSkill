@@ -141,8 +141,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATICFILES_DIRS = [BASE_DIR / 'static', 'templates/flatpages']
 
-# LOGIN_URL = '/accounts/login/'
-LOGIN_URL = 'sign/login/'
+LOGIN_URL = '/accounts/login/'
+# LOGIN_URL = 'sign/login/'
 LOGIN_REDIRECT_URL = '/'
 
 AUTHENTICATION_BACKENDS = [

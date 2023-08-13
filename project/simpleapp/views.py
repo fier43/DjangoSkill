@@ -3,6 +3,8 @@ from .forms import ProductForm
 from django.shortcuts import render
 from datetime import datetime
 from .filters import ProductFilter
+from django.contrib.auth.mixins import PermissionRequiredMixin
+from django.views import View
 
 # Импортируем класс, который говорит нам о том,
 # что в этом представлении мы будем выводить список объектов из БД
@@ -61,20 +63,10 @@ class ProductDetail(DetailView):
     # Название объекта, в котором будет выбранный пользователем продукт
     context_object_name = 'product'
 
-# def create_product(request):
-#     form = ProductForm()
-
-#     if request.method == "POST":
-#         form = ProductForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return HttpResponseRedirect('/products/')
-
-
-#     return render(request, "product_edit.html", {"form": form})
 
 # Добавляем новое представление для создания товаров.
-class ProductCreate(CreateView):
+class ProductCreate(PermissionRequiredMixin, CreateView):
+    permission_required = ('simpleapp.add_product')
     # Указываем нашу разработанную форму
     form_class = ProductForm
     # модель товаров
